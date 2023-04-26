@@ -13,8 +13,9 @@ public class BookService {
     private BookRepository bookRepository;
     public int save(BookDTO bookDTO) {
         System.out.println("BookDTO = " + bookDTO);
-        int result = bookRepository.save(bookDTO);
-        return result;
+//        int result = bookRepository.save(bookDTO);
+//        return result;
+        return bookRepository.save(bookDTO);
     }
     public List<BookDTO> findAll() {
         List<BookDTO> bookDTOList = bookRepository.findAll();
@@ -26,5 +27,13 @@ public class BookService {
     }
     public BookDTO findById(Long id) {
         return bookRepository.findById(id);
+    }
+
+    public void update(BookDTO bookDTO) {
+        bookRepository.update(bookDTO);
+    }
+
+    public void delete(Long id) {
+        bookRepository.delete(id);
     }
 }

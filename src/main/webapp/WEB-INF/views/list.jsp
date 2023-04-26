@@ -23,11 +23,15 @@
 <%--            <th>author</th>--%>
 <%--            <th>price</th>--%>
             <th>조회</th>
+            <th>조회(js)</th>
+            <th>수정</th>
+            <th>삭제</th>
         </tr>
     <c:forEach items="${bookList}" var="book">
         <tr>
             <td>${book.id}</td>
-            <td>${book.bookName}</td>
+            <td><a href="/detail?id=${book.id}">${book.bookName}</a></td>
+<%--            <td>${book.bookName}</td>--%>
 <%--            <td>${book.bookPublisher}</td>--%>
 <%--            <td>${book.bookAuthor}</td>--%>
 <%--            <td>${book.bookPrice}</td>--%>
@@ -41,8 +45,28 @@
                     resultType="book"으로 하면 됩니다. --%>
                 <a href="/detail?id=${book.id}">조회</a>
             </td>
+            <td>
+                <button onclick="detail_book('${book.id}')">조회</button>
+            </td>
+            <td>
+                <button onclick="update_book('${book.id}')">수정</button>
+            </td>
+            <td>
+                <button onclick="delete_book('${book.id}')">삭제</button>
+            </td>
         </tr>
     </c:forEach>
     </table>
 </body>
+<script>
+    const detail_book = (id) => {
+        location.href = "/detail?id="+id;
+    }
+    const update_book = (id) => {
+        location.href = "/update?id="+id;
+    }
+    const delete_book = (id) => {
+        location.href = "/delete?id="+id;
+    }
+</script>
 </html>

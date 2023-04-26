@@ -17,7 +17,13 @@
         select * from book_table where id = (#{id})
     </select>
 
+    <update id="update" parameterType="book">
+        update book_table set bookName=#{bookName}, bookPublisher=#{bookPublisher},
+            bookAuthor=#{bookAuthor}, bookPrice=#{bookPrice}
+                where id=#{id}
+    </update>
+
     <delete id="delete" parameterType="Long">
-        delete * from book_table where id = (#{id})
+        delete from book_table where id = #{id}
     </delete>
 </mapper>

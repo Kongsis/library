@@ -30,9 +30,6 @@
                 <td>${book.bookAuthor}</td>
                 <td>${book.bookPrice}</td>
             </tr>
-        <td>
-            <a href="/delete?id=${book.id}" methods="post">삭제</a>
-        </td>
     </table>
 </body>
 </html>
